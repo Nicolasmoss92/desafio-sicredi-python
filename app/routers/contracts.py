@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from app.dtos.contracts import TopContractsRequestDTO, TopContractsResponseDTO
 from app.services.contracts import ContractsService
 
-router = APIRouter(prefix="/contracts", tags=["Question 1 - Top Debtors"])
+router = APIRouter(prefix="/contracts", tags=["Questão 1 - Maiores devedores"])
 
 service = ContractsService()
 
@@ -11,7 +11,7 @@ service = ContractsService()
 @router.post(
     "/top-debtors",
     response_model=TopContractsResponseDTO,
-    summary="Retorna os N maiores devedores sem renegociação",
+    summary="Retorna os maiores devedores sem renegociação",
 )
 def get_top_debtors(request: TopContractsRequestDTO) -> TopContractsResponseDTO:
     """
