@@ -9,7 +9,7 @@ service = OrdersService()
 
 
 @router.post(
-    "/combine",
+    "/trip-planning",
     response_model=CombineOrdersResponseDTO,
     summary="Calcula o número mínimo de viagens para atender todos os pedidos",
 )
