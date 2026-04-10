@@ -1,20 +1,18 @@
-from typing import List
-
 from app.dtos.contracts import ContractDTO, TopContractsResponseDTO
 
 
 class ContractsService:
     def get_top_N_open_contracts(
         self,
-        open_contracts: List[ContractDTO],
-        renegotiated_contracts: List[int],
+        open_contracts: list[ContractDTO],
+        renegotiated_contracts: list[int],
         top_n: int,
     ) -> TopContractsResponseDTO:
         """
         Retorna os top_n maiores devedores que ainda não renegociaram.
 
         """
-        if not open_contracts or top_n <= 0:
+        if not open_contracts:
             return TopContractsResponseDTO(top_debtors=[])
 
         renegotiated_ids = set(renegotiated_contracts)

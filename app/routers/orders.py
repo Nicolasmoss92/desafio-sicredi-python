@@ -1,11 +1,13 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from app.dtos.orders import CombineOrdersRequestDTO, CombineOrdersResponseDTO
 from app.services.orders import OrdersService
 
 router = APIRouter(prefix="/orders", tags=["Questão 2 - Quantidade mínima de viagens"])
 
-service = OrdersService()
+
+def get_orders_service() -> OrdersService:
+    return OrdersService()
 
 
 @router.post(
@@ -13,7 +15,10 @@ service = OrdersService()
     response_model=CombineOrdersResponseDTO,
     summary="Calcula o número mínimo de viagens para atender todos os pedidos",
 )
-def combine_orders(request: CombineOrdersRequestDTO) -> CombineOrdersResponseDTO:
+def combine_orders(
+    request: CombineOrdersRequestDTO,
+    service: OrdersService = Depends(get_orders_service),
+) -> CombineOrdersResponseDTO:
     """
     Recebe uma lista de pedidos e o valor máximo por viagem,
     e retorna o número mínimo de viagens necessárias.

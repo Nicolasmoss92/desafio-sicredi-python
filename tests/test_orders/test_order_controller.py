@@ -50,3 +50,17 @@ class TestOrdersRouter:
             json={"requests": [1, 2, 3]},
         )
         assert response.status_code == 422
+
+    def test_invalid_request_item_zero(self):
+        response = client.post(
+            "/orders/trip-planning",
+            json={"requests": [0, 2, 3], "n_max": 5},
+        )
+        assert response.status_code == 422
+
+    def test_invalid_request_item_negative(self):
+        response = client.post(
+            "/orders/trip-planning",
+            json={"requests": [-1, 2, 3], "n_max": 5},
+        )
+        assert response.status_code == 422

@@ -1,11 +1,13 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from app.dtos.contracts import TopContractsRequestDTO, TopContractsResponseDTO
 from app.services.contracts import ContractsService
 
 router = APIRouter(prefix="/contracts", tags=["Questão 1 - Maiores devedores"])
 
-service = ContractsService()
+
+def get_contracts_service() -> ContractsService:
+    return ContractsService()
 
 
 @router.post(
@@ -13,7 +15,10 @@ service = ContractsService()
     response_model=TopContractsResponseDTO,
     summary="Retorna os maiores devedores sem renegociação",
 )
-def get_top_debtors(request: TopContractsRequestDTO) -> TopContractsResponseDTO:
+def get_top_debtors(
+    request: TopContractsRequestDTO,
+    service: ContractsService = Depends(get_contracts_service),
+) -> TopContractsResponseDTO:
     """
     Recebe a lista de contratos em aberto, os já renegociados e o top_n,
     e retorna os IDs dos maiores devedores que ainda não renegociaram.

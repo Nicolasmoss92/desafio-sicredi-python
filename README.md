@@ -41,6 +41,18 @@ venv/Scripts/uvicorn app.main:app --reload
 
 Acesse a documentação interativa em: http://127.0.0.1:8000/docs
 
+## Como rodar com Docker
+
+**1. Subir o container**
+
+```bash
+docker compose up --build
+```
+
+Acesse a documentação interativa em: http://127.0.0.1:8000/docs
+
+---
+
 ## Como rodar os testes
 
 ```powershell

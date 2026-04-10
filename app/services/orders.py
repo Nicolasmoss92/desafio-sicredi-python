@@ -32,7 +32,8 @@ class OrdersService:
         while smallest_order_index <= largest_order_index:
             smallest_order = orders_sorted_by_value[smallest_order_index]
             largest_order = orders_sorted_by_value[largest_order_index]
-            can_combine = smallest_order + largest_order <= n_max
+            is_same_element = smallest_order_index == largest_order_index
+            can_combine = not is_same_element and smallest_order + largest_order <= n_max
 
             if can_combine:
                 smallest_order_index += 1

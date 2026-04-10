@@ -28,3 +28,11 @@ class TestOrdersService:
     def test_unsorted_input(self):
         result = self.service.combine_orders(requests=[5, 1, 4, 2, 3], n_max=5)
         assert result.total_trips == 3
+
+    def test_all_equal_orders_combine(self):
+        result = self.service.combine_orders(requests=[3, 3, 3], n_max=6)
+        assert result.total_trips == 2
+
+    def test_all_equal_orders_no_combine(self):
+        result = self.service.combine_orders(requests=[3, 3, 3], n_max=5)
+        assert result.total_trips == 3

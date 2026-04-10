@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 
 class ContractDTO(BaseModel):
-    id: int = Field(..., description="Identificador do correntista")
+    id: int = Field(..., gt=0, description="Identificador do correntista")
     debt: float = Field(..., ge=0, description="Saldo devedor total do correntista")
 
 
