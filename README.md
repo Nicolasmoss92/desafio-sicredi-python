@@ -1,4 +1,4 @@
-# desafio-sicredi-python
+# Desafio Sicredi
 
 Desafio técnico para a Cooperativa Sicredi, composto por duas questões:
 
