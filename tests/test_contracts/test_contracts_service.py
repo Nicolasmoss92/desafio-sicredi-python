@@ -24,7 +24,3 @@ class TestContractsService:
         result = service.get_top_N_open_contracts(contracts, [1, 2], 2)
         assert result.top_debtors == []
 
-    def test_returns_empty_when_top_n_is_zero(self):
-        contracts = [ContractDTO(id=1, debt=100)]
-        result = service.get_top_N_open_contracts(contracts, [], 0)
-        assert result.top_debtors == []

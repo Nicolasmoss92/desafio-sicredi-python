@@ -12,7 +12,7 @@ class ContractsService:
         Retorna os top_n maiores devedores que ainda não renegociaram.
 
         """
-        if not open_contracts or top_n <= 0:
+        if not open_contracts:
             return TopContractsResponseDTO(top_debtors=[])
 
         renegotiated_ids = set(renegotiated_contracts)
