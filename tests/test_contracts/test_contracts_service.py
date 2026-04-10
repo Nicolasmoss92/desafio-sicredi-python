@@ -1,10 +1,6 @@
-from fastapi.testclient import TestClient
-
 from app.dtos.contracts import ContractDTO
-from app.main import app
 from app.services.contracts import ContractsService
 
-client = TestClient(app)
 service = ContractsService()
 
 

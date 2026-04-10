@@ -1,13 +1,11 @@
-from typing import List
-
 from app.dtos.contracts import ContractDTO, TopContractsResponseDTO
 
 
 class ContractsService:
     def get_top_N_open_contracts(
         self,
-        open_contracts: List[ContractDTO],
-        renegotiated_contracts: List[int],
+        open_contracts: list[ContractDTO],
+        renegotiated_contracts: list[int],
         top_n: int,
     ) -> TopContractsResponseDTO:
         """
