@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from app.dtos.orders import CombineOrdersRequestDTO, CombineOrdersResponseDTO
 from app.services.orders import OrdersService
 
-router = APIRouter(prefix="/orders", tags=["Question 2 - Armored Car Orders"])
+router = APIRouter(prefix="/orders", tags=["Questão 2 - Quantidade mínima de viagens"])
 
 service = OrdersService()
 
